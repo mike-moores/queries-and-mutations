@@ -1,0 +1,9 @@
+.form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.buttons {
+  display: inline-flex;
+  gap: 0.5rem;
+}

@@ -1,32 +1,22 @@
-import { PartialPokemon, Pokemon } from '../../models/pokemon'
+import { Pokemon } from '../../models/pokemon'
 import db from './connection'
 
-export async function getAllPokemon(): Promise<PartialPokemon[]> {
+export async function getAllPokemon(): Promise<Pokemon[]> {
   return db('pokemon').select('*')
 }
 
-export async function getPokemonById(id: number): Promise<Pokemon | null> {
-  const pokemon = await getAllPokemonWithTypes().where('pokemon.id', id).first()
-
-  if (!pokemon) {
-    return null
-  }
-
-  return {
-    id: pokemon.id,
-    name: pokemon.name,
-    types: pokemon.types.split(','),
-  }
+export async function getPokemonById(id: number): Promise<Pokemon> {
+  return db('pokemon').where({ id }).first()
 }
 
-function getAllPokemonWithTypes() {
-  return db('pokemon')
-    .join('pokemon_types', 'pokemon.id', 'pokemon_types.pokemon_id')
-    .join('types', 'pokemon_types.type_id', 'types.id')
-    .select(
-      'pokemon.id',
-      'pokemon.name',
-      db.raw('GROUP_CONCAT(DISTINCT types.name) as types')
-    )
-    .groupBy('pokemon.id')
+export async function addPokemon(name: string): Promise<void> {
+  await db('pokemon').insert({ name })
+}
+
+export async function renamePokemon(id: number, name: string): Promise<void> {
+  await db('pokemon').where({ id }).update({ name })
+}
+
+export async function deletePokemon(id: number): Promise<void> {
+  await db('pokemon').where({ id }).delete()
 }

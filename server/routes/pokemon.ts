@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
   }
 
   try {
-    const pokemon = await db.getPokemonById(parseInt(req.params.id))
+    const pokemon = await db.getPokemonById(id)
     if (!pokemon) {
       res.sendStatus(404)
       return
@@ -30,6 +30,60 @@ router.get('/:id', async (req, res) => {
   } catch (err) {
     console.log(err)
     res.status(500).send('Could not get pokemon')
+  }
+})
+
+router.post('/', async (req, res) => {
+  const name = req.body.name
+  if (!name) {
+    res.sendStatus(400)
+    return
+  }
+
+  try {
+    await db.addPokemon(name)
+    res.sendStatus(200)
+  } catch (err) {
+    console.log(err)
+    res.status(500).send('Could not add pokemon')
+  }
+})
+
+router.patch('/:id', async (req, res) => {
+  const id = parseInt(req.params.id)
+  if (isNaN(id)) {
+    res.sendStatus(400)
+    return
+  }
+
+  const name = req.body.name
+  if (!name) {
+    res.sendStatus(400)
+    return
+  }
+
+  try {
+    await db.renamePokemon(id, name)
+    res.sendStatus(200)
+  } catch (err) {
+    console.log(err)
+    res.status(500).send('Could not rename pokemon')
+  }
+})
+
+router.delete('/:id', async (req, res) => {
+  const id = parseInt(req.params.id)
+  if (isNaN(id)) {
+    res.sendStatus(400)
+    return
+  }
+
+  try {
+    await db.deletePokemon(id)
+    res.sendStatus(200)
+  } catch (err) {
+    console.log(err)
+    res.status(500).send('Could not delete pokemon')
   }
 })
 
