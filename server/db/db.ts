@@ -9,8 +9,8 @@ export async function getPokemonById(id: number): Promise<Pokemon> {
   return db('pokemon').where({ id }).first()
 }
 
-export async function addPokemon(name: string): Promise<void> {
-  await db('pokemon').insert({ name })
+export async function addPokemon(name: string): Promise<Pokemon> {
+  return db('pokemon').insert({ name }).returning(['id', 'name'])
 }
 
 export async function renamePokemon(id: number, name: string): Promise<void> {

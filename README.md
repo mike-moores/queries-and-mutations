@@ -1,6 +1,6 @@
-# Query 'Em All
+# Queries and Mutations
 
-Practice writing queries with React Query and displaying loading states, error states, and data. We will be using the [Pokémon API](https://pokeapi.co).
+Practice writing queries and mutations with React Query and displaying loading states, error states, and data. We will be using our own database of Pokémon, which is a subset of the [PokéAPI](https://pokeapi.co/).
 
 ## Setup
 
@@ -10,7 +10,7 @@ Practice writing queries with React Query and displaying loading states, error s
     <summary>Tip</summary>
 
     ```sh
-    cd query-em-all
+    cd queries-and-mutations
     npm i
     npm run dev
     ```
@@ -18,44 +18,13 @@ Practice writing queries with React Query and displaying loading states, error s
 
 ### 1. Looking around
 
-`client/apis/pokemon.ts` and `server/routes/pokemon.ts` are written for you! Take a look at them and then try them out in Insomnia (or Thunder Client) to see what they return. The types are also written for you in `models/pokemon.ts`, they only contain the fields we are interested in.
+In this challenge, the Database, API Routes, and Client API functions are written for you. Take a look in `server/db`, `server/routes`, and `client/apis` to see what's there. The types are also written for you in `models`.
 
-`<App>` is rendering two client-side routes, `/` and `/pokemon/:name`:
-  - `/` renders `<PokemonList>`, a list of hardcoded Pokémon
-  - `/pokemon/:name` renders `<PokemonDetail>`, a single Pokémon (with lots more information), also hardcoded
+`routes.tsx` is rendering a single client-side route, `/pokemon`, which renders `<PokemonList>`
 
-Visit [localhost:3000/](http://localhost:3000/) and [localhost:3000/pokemon/bulbasaur](http://localhost:3000/pokemon/bulbasaur), Bulbasaur is currently our only resident Pokémon. We will be replacing the hardcoded data with data from the API.
+Visit [localhost:5173/](http://localhost:5173/) to see a list of three example Pokémon, click the buttons and note what they do. The <kbd>Save</kbd> and <kbd>Delete</kbd> buttons do not do anything yet besides logging a value. 
 
-### 2. Setting up React Query
-
-- [ ] Install React Query and React Query Devtools
-
-```sh
-npm i @tanstack/react-query @tanstack/react-query-devtools
-```
-
-- [ ] In `client/index.tsx` import `{ QueryClient, QueryClientProvider }` from `@tanstack/react-query`
-
-- [ ] Create a new `QueryClient` instance and wrap the `<App>` component in a `<QueryClientProvider>` component, passing the `QueryClient` instance as a prop
-
-  <details style="padding-left: 2em">
-    <summary>Tip</summary>
-
-    ```tsx
-    // creating a new QueryClient instance
-    const queryClient = new QueryClient()
-
-    // ...
-
-    root.render(
-      // wrapping the app in a QueryClientProvider
-      // and passing the QueryClient instance as a prop
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    )
-    ```
-  </details>
+React Query is setup for you in `client/index.tsx`.
 
 ---
 

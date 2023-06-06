@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const id = parseInt(req.params.id)
   if (isNaN(id)) {
-    res.sendStatus(400)
+    res.status(400).send('Bad Request: ID must be a number')
     return
   }
 
@@ -36,13 +36,13 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const name = req.body.name
   if (!name) {
-    res.sendStatus(400)
+    res.status(400).send('Bad Request: ID must be a number')
     return
   }
 
   try {
-    await db.addPokemon(name)
-    res.sendStatus(200)
+    const pokemon = await db.addPokemon(name)
+    res.status(200).json({ pokemon })
   } catch (err) {
     console.log(err)
     res.status(500).send('Could not add pokemon')
@@ -52,13 +52,13 @@ router.post('/', async (req, res) => {
 router.patch('/:id', async (req, res) => {
   const id = parseInt(req.params.id)
   if (isNaN(id)) {
-    res.sendStatus(400)
+    res.status(400).send('Bad Request: ID must be a number')
     return
   }
 
   const name = req.body.name
   if (!name) {
-    res.sendStatus(400)
+    res.status(400).send('Bad Request: Name is required')
     return
   }
 

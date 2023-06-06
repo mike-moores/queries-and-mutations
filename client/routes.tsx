@@ -1,4 +1,5 @@
 import {
+  Navigate,
   Route,
   createBrowserRouter,
   createRoutesFromElements,
@@ -9,7 +10,8 @@ import PokemonList from './components/PokemonList'
 
 export const routes = createRoutesFromElements(
   <Route element={<AppLayout />}>
-    <Route index element={<PokemonList />} />
+    <Route index element={<Navigate to="pokemon" />} />
+    <Route path="pokemon" element={<PokemonList />} />
   </Route>
 )
 

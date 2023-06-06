@@ -28,7 +28,7 @@ export default function PokemonListItem({ id, name }: Props) {
     setText(name)
   }
 
-  const handleEditingClick = () => {
+  const handleStartEditingClick = () => {
     setEditing(true)
   }
 
@@ -50,7 +50,7 @@ export default function PokemonListItem({ id, name }: Props) {
         <p>
           {id} - {name} -{' '}
           <span className={styles.buttons}>
-            <button onClick={handleEditingClick}>Edit</button>
+            <button onClick={handleStartEditingClick}>Rename</button>
             <button onClick={handleDeleteClick}>Delete</button>
           </span>
         </p>

@@ -55,7 +55,8 @@ describe('db', () => {
       const before = await db.getAllPokemon()
       expect(before).toHaveLength(151)
 
-      await db.addPokemon('Chikorita')
+      const pokemon = await db.addPokemon('Chikorita')
+      expect(pokemon).toMatchInlineSnapshot()
 
       const chikorita = await db.getPokemonById(152)
       expect(chikorita.name).toBe('Chikorita')
