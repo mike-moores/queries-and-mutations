@@ -35,13 +35,13 @@ describe('db', () => {
   describe('getPokemonById', () => {
     it('gets a pokemon by id', async () => {
       const mew = await db.getPokemonById(151)
-      expect(mew.name).toBe('Mew')
+      expect(mew?.name).toBe('Mew')
 
       const dratini = await db.getPokemonById(147)
-      expect(dratini.name).toBe('Dratini')
+      expect(dratini?.name).toBe('Dratini')
 
       const bulbasaur = await db.getPokemonById(1)
-      expect(bulbasaur.name).toBe('Bulbasaur')
+      expect(bulbasaur?.name).toBe('Bulbasaur')
     })
 
     it('returns undefined if the pokemon does not exist', async () => {
@@ -59,7 +59,7 @@ describe('db', () => {
       expect(pokemon).toMatchInlineSnapshot()
 
       const chikorita = await db.getPokemonById(152)
-      expect(chikorita.name).toBe('Chikorita')
+      expect(chikorita?.name).toBe('Chikorita')
 
       const after = await db.getAllPokemon()
       expect(after).toHaveLength(152)
@@ -69,12 +69,12 @@ describe('db', () => {
   describe('renamePokemon', () => {
     it('renames a pokemon', async () => {
       const before = await db.getPokemonById(1)
-      expect(before.name).toBe('Bulbasaur')
+      expect(before?.name).toBe('Bulbasaur')
 
       await db.renamePokemon(1, 'Bulby')
 
       const after = await db.getPokemonById(1)
-      expect(after.name).toBe('Bulby')
+      expect(after?.name).toBe('Bulby')
 
       const all = await db.getAllPokemon()
       expect(all).toHaveLength(151)
