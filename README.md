@@ -12,6 +12,8 @@ Practice writing queries and mutations with React Query and displaying loading s
     ```sh
     cd queries-and-mutations
     npm i
+    npm run knex migrate:latest
+    npm run knex seed:run
     npm run dev
     ```
   </details>

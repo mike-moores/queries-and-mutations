@@ -2,7 +2,7 @@ import request from 'superagent'
 import type { Pokemon } from '../../models/pokemon'
 
 export async function getAllPokemon() {
-  const response = await request.get('/api/pokemon')
+  const response = await request.get('/api/v1/pokemon')
 
   return response.body as Pokemon[]
 }

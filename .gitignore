@@ -1,2 +1,7 @@
 node_modules
 bundle*
+*.log
+*.sqlite3
+coverage/*
+.env
+dist/*
