@@ -11,7 +11,7 @@
     "build": "npm run webpack",
     "build:client": "vite build",
     "build:server": "tsc -p server/tsconfig.json",
-    "knex": "knex --knexfile server/db/knexfile.ts",
+    "knex": "knex --knexfile server/db/knexfile.js",
     "test": "vitest",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"

@@ -14,16 +14,20 @@ export async function addPokemon({ name }: AddPokemon): Promise<void> {
   await request.post('/api/v1/pokemon').send({ name })
 }
 
+interface RenamePokemon {
+  id: Pokemon['id']
+  newName: Pokemon['name']
+}
 export async function renamePokemon({
   id,
   newName,
-}: {
-  id: number
-  newName: string
-}) {
+}: RenamePokemon): Promise<void> {
   await request.patch(`/api/v1/pokemon/${id}`).send({ name: newName })
 }
 
-export async function deletePokemon({ id }: { id: number }) {
+interface DeletePokemon {
+  id: Pokemon['id']
+}
+export async function deletePokemon({ id }: DeletePokemon): Promise<void> {
   await request.delete(`/api/v1/pokemon/${id}`)
 }

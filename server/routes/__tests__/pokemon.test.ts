@@ -110,7 +110,7 @@ describe('POST /api/v1/pokemon/', () => {
     // Assert
     expect(vi.mocked(db.addPokemon)).toHaveBeenCalledWith('Chikorita')
     expect(response.status).toBe(200)
-    expect(response.body.pokemon).toMatchInlineSnapshot('undefined')
+    expect(response.body.pokemon).toBeUndefined()
   })
 
   it('returns an error if addPokemon throws', async () => {

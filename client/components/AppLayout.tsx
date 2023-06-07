@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 function App() {
   return (
     <main>
-      <h1>Evolving Pokémon? Nah, mutating...</h1>
+      <h1>Evolving Pokémon? More like, mutating...</h1>
       <Outlet />
     </main>
   )
