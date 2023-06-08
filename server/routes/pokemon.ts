@@ -74,7 +74,7 @@ router.patch('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const id = parseInt(req.params.id)
   if (isNaN(id)) {
-    res.sendStatus(400)
+    res.status(400).send('Bad Request: ID must be a number')
     return
   }
 
