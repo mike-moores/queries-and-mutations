@@ -56,7 +56,14 @@ describe('db', () => {
       expect(before).toHaveLength(151)
 
       const pokemon = await db.addPokemon('Chikorita')
-      expect(pokemon).toMatchInlineSnapshot()
+      expect(pokemon).toMatchInlineSnapshot(`
+        [
+          {
+            "id": 152,
+            "name": "Chikorita",
+          },
+        ]
+      `)
 
       const chikorita = await db.getPokemonById(152)
       expect(chikorita?.name).toBe('Chikorita')
