@@ -90,7 +90,7 @@ describe('GET /api/v1/pokemon/:id', () => {
 
     // Assert
     expect(response.status).toBe(404)
-    expect(response.text).toBe('Could not find Pokemon with ID: 1')
+    expect(response.text).toBe('Not Found')
   })
 
   it('returns an error if getPokemonById throws', async () => {
