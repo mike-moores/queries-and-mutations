@@ -75,7 +75,9 @@ React Query is setup for you in `client/index.tsx`.
 <details>
   <summary>More about stretch challenges</summary>
 
-  - Add a delete button to `<PokemonListItem>` that deletes the Pokémon from the database
+  - [ ] As a user, I want to see a form where I can add a new Pokémon to the database
+  
+  - [ ] Refactor the `useQuery`s and `useMutation`s so that we have a single hook called, `usePokemon` that returns all the queries and mutations we need for Pokémon. This will allow us to use the same hook in multiple components without having to repeat ourselves.
 </details>
 
 ---
