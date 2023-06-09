@@ -78,6 +78,8 @@ React Query is setup for you in `client/index.tsx`.
   - [ ] As a user, I want to see a form where I can add a new Pokémon to the database
   
   - [ ] Refactor the `useQuery`s and `useMutation`s so that we have a single hook called, `usePokemon` that returns all the queries and mutations we need for Pokémon. This will allow us to use the same hook in multiple components without having to repeat ourselves.
+
+  - [ ] Test the various features in this app using Vitest, React Testing Library, and nock. Add client tests in `client/__tests__` and test features like, clicking the delete button, renaming a Pokémon, and adding a new Pokémon. Note: you may like to use `test-utils.tsx` from other challenges to create a wrapper for `render()` for `<QueryClientProvider>` and `<RouterProvider>`.
 </details>
 
 ---
