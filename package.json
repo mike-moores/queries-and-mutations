@@ -28,7 +28,7 @@
   "dependencies": {
     "express": "^4.17.2",
     "knex": "^2.3.0",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.2"
   },
   "devDependencies": {
     "@devacademy/eslint-config": "^1.8.0",
@@ -55,7 +55,7 @@
     "prettier": "2.6.1",
     "react": "^18.0.2",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.1",
+    "react-router-dom": "^6.11.2",
     "superagent": "7.1.1",
     "supertest": "^6.2.2",
     "ts-node": "^10.9.1",
