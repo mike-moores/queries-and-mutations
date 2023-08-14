@@ -1,5 +1,6 @@
 {
   "name": "queries-and-mutations",
+  "type": "module",
   "version": "0.1.2",
   "description": "React Query with Queries and Mutations, using Pokémon data",
   "main": "server/index",
