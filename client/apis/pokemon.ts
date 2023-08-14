@@ -1,5 +1,5 @@
 import request from 'superagent'
-import type { Pokemon } from '../../models/pokemon'
+import type { Pokemon } from '../../models/pokemon.ts'
 
 export async function getAllPokemon() {
   const response = await request.get('/api/v1/pokemon')

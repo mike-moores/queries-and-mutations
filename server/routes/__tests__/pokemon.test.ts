@@ -1,8 +1,8 @@
 import { vi, describe, it, expect, beforeEach } from 'vitest'
-import server from '../../server'
+import server from '../../server.ts'
 import request from 'supertest'
 
-import * as db from '../../db/db'
+import * as db from '../../db/db.ts'
 
 vi.mock('../../db/db')
 

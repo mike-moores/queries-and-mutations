@@ -1,7 +1,7 @@
 import { join } from 'node:path'
 import express from 'express'
 
-import pokemonRoutes from './routes/pokemon'
+import pokemonRoutes from './routes/pokemon.ts'
 
 const server = express()
 

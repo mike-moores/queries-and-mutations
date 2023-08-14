@@ -1,6 +1,6 @@
 import { it, describe, expect, beforeEach } from 'vitest'
-import connection from '../connection'
-import * as db from '../db'
+import connection from '../connection.ts'
+import * as db from '../db.ts'
 
 beforeEach(async () => {
   await connection.migrate.rollback()

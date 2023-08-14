@@ -1,5 +1,5 @@
-import { Pokemon } from '../../models/pokemon'
-import db from './connection'
+import { Pokemon } from '../../models/pokemon.ts'
+import db from './connection.ts'
 
 export async function getAllPokemon(): Promise<Pokemon[]> {
   return db('pokemon').select('*')

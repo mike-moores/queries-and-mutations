@@ -1,5 +1,5 @@
-import { Pokemon } from '../../models/pokemon'
-import PokemonListItem from './PokemonListItem'
+import { Pokemon } from '../../models/pokemon.ts'
+import PokemonListItem from './PokemonListItem.tsx'
 
 export default function PokemonList() {
   // TODO: fetch the list of pokemon from the server
