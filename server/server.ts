@@ -1,7 +1,12 @@
 import { join } from 'node:path'
-import express from 'express'
+import * as Path from 'node:path'
+import * as URL from 'node:url'
 
 import pokemonRoutes from './routes/pokemon.ts'
+
+const __filename = URL.fileURLToPath(import.meta.url)
+const __dirname = Path.dirname(__filename)
+import express from 'express'
 
 const server = express()
 
