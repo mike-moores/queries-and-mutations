@@ -1,16 +1,20 @@
-const path = require('node:path')
+import * as Path from 'node:path'
+import * as URL from 'node:url'
+
+const __filename = URL.fileURLToPath(import.meta.url)
+const __dirname = Path.dirname(__filename)
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-module.exports = {
+export default {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: path.resolve(__dirname, './dev.sqlite3'),
+      filename: Path.resolve(__dirname, './dev.sqlite3'),
     },
     migrations: {
-      directory: path.resolve(__dirname, './migrations'),
+      directory: Path.resolve(__dirname, './migrations'),
     },
     useNullAsDefault: true,
     pool: {
@@ -23,10 +27,10 @@ module.exports = {
       filename: ':memory:',
     },
     migrations: {
-      directory: path.resolve(__dirname, './migrations'),
+      directory: Path.resolve(__dirname, './migrations'),
     },
     seeds: {
-      directory: path.resolve(__dirname, './seeds'),
+      directory: Path.resolve(__dirname, './seeds'),
     },
     useNullAsDefault: true,
     pool: {
