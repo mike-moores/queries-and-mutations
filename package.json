@@ -41,6 +41,7 @@
     "@types/superagent": "^4.1.15",
     "@types/supertest": "^2.0.12",
     "@vitejs/plugin-react": "^4.0.0",
+    "esbuild": "^0.19.2",
     "eslint": "^8.10.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^26.1.1",
@@ -58,6 +59,7 @@
     "react-router-dom": "^6.11.2",
     "superagent": "7.1.1",
     "supertest": "^6.2.2",
+    "tsx": "^3.12.7",
     "typescript": "^5.1.6",
     "vite": "^4.3.9",
     "vitest": "^0.31.1"
