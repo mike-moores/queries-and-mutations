@@ -1,10 +1,10 @@
-const pokemon = require('../data/pokemon')
+import pokemon from '../data/pokemon.js'
 
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.seed = async function (knex) {
+export async function seed(knex) {
   await knex('pokemon').del()
   await knex('pokemon').insert(pokemon)
 }
