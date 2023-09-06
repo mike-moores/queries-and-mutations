@@ -61,7 +61,7 @@ React Query is setup for you in `client/index.tsx`.
     ```
   </details>
 
-### 5. Renaming a Pokémon
+### 3. Renaming a Pokémon
 
 - [ ] As a user, I want to rename a Pokémon so that I can give it a more fitting name
 
