@@ -1,19 +1,22 @@
-import { Pokemon } from '../../models/pokemon.ts'
+import { getAllPokemon } from '../apis/pokemon.ts'
 import PokemonListItem from './PokemonListItem.tsx'
+import { useQuery } from '@tanstack/react-query'
+import LoadingSpinner from './LoadingSpinner.tsx'
 
 export default function PokemonList() {
-  // TODO: fetch the list of pokemon from the server
-  const pokemon: Pokemon[] = [
-    { id: 1, name: 'Bulbasaur' },
-    {
-      id: 2,
-      name: 'Ivysaur',
-    },
-    {
-      id: 3,
-      name: 'Venusaur',
-    },
-  ]
+  const {
+    data: pokemon,
+    isLoading,
+    error,
+  } = useQuery({ queryKey: ['pokemon'], queryFn: () => getAllPokemon() })
+
+  if (error) {
+    return <p>Error while trying to get pokemon</p>
+  }
+
+  if (isLoading || !pokemon) {
+    return <LoadingSpinner />
+  }
 
   return (
     <div>
